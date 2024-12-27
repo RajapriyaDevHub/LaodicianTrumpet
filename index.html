@@ -1,99 +1,416 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
-    <!-- Importing the Roboto font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        @keyframes gradientBackground {
-            0% {
-                background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            }
-            25% {
-                background: linear-gradient(to right, #f2994a, #f2c94c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            }
-            50% {
-                background: linear-gradient(to top right, #6A0DAD, #FF7F50, #FFD700, #FFB6C1, #A2C2E8)
-            }
-            75% {
-                background: linear-gradient(to top right, #6A0DAD, #FF7F50, #FFD700, #FFB6C1, #A2C2E8)
-            }
-            100% {
-                background: linear-gradient(to top right, #6A0DAD, #FF7F50, #FFD700, #FFB6C1, #A2C2E8)
-            }
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
+    <title>Laodicean Trumpet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <style>
         body {
             margin: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: gradientBackground 15s ease infinite;
-            background-size: 400% 400%;
-            font-family: 'Roboto', sans-serif; /* Applying Roboto font */
+            font-family: 'Raleway', sans-serif;
+            color: #2f2e2e;
         }
 
-        .coming-soon-container {
+        /* HEADER */
+        header {
+            background-color: #4A90E2;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        header nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #d1e9ff;
+        }
+
+        /* Responsive Header Menu */
+        .menu-toggle {
+            display: none;
+            background-color: white;
+            border: none;
+            color: #4A90E2;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* Responsive Hero Section Image */
+.hero-image img {
+    width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    max-width: 400px; /* Optional: Limit max size for larger screens */
+}
+/* Hero Image Animation */
+.hero-image img {
+    width: 100%;
+    height: auto;
+    max-width: 400px; /* Optional: Limit max size for larger screens */
+    animation: fadeInZoom 2s ease-out;
+}
+
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-image {
+        max-width: 50% !important; /* Adjust for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-image {
+        max-width: 70% !important; /* Adjust for mobile */
+        margin: 0 auto; /* Center image */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image {
+        max-width: 90% !important; /* Further adjustment for small screens */
+        margin: 0 auto; /* Center image */
+    }
+}
+        /* Responsive Typography */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 2.5rem !important; /* Adjusted for tablets */
+    }
+
+    .hero-content p {
+        font-size: 1rem !important; /* Slightly smaller for better readability */
+    }
+
+    .hero-content .cta {
+        font-size: 1rem !important;
+        padding: 0.5rem 1rem !important; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem !important; /* Adjusted for mobile screens */
+    }
+
+    .hero-content p {
+        font-size: 0.9rem !important;
+    }
+
+    .hero-content .cta {
+        font-size: 0.9rem !important;
+        padding: 0.4rem 0.8rem !important; /* Compact size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem !important; /* Further adjustment for small screens */
+    }
+
+    .hero-content p {
+        font-size: 0.85rem !important;
+    }
+
+    .hero-content .cta {
+        font-size: 0.8rem !important;
+        padding: 0.3rem 0.6rem !important;
+    }
+}
+
+
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+                flex-direction: column;
+                background-color: #4A90E2;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                padding: 1rem 0;
+            }
+
+            header nav.show {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            display: flex;
+            align-items: center;
+            /* justify-content: space-between; */
+            justify-content: space-around;
+            padding: 3rem 2rem;
+            background: linear-gradient(to right, #eaf4fc, #fff);
+        }
+
+        .hero-content {
+            max-width: 50%;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: #4A90E2;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1.5s ease-out;
+            font-family: 'Playfair Display', serif;
+
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #5a5a5a;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-out;
+            font-family: 'Lora', serif;
+        }
+
+        .hero-content .cta {
+            font-family: 'Poppins', sans-serif;
+            background-color: #4A90E2;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .hero-content .cta:hover {
+            background-color: #fcb658;
+            transform: scale(1.1);
+        }
+
+        .hero-image {
+            position: relative;
+            max-width: 40%;
+        }
+
+        .hero-image img {
+            width: 100%;
+        }
+
+        .hero-shape {
+            position: absolute;
+            background-color: #fcb658;
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            top: -20px;
+            right: -20px;
+            z-index: -1;
+        }
+
+        .hero-shape2 {
+            position: absolute;
+            background-color: #4A90E2;
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            bottom: -20px;
+            left: -20px;
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* INTRODUCTION SECTION */
+        .introduction {
+            padding: 3rem 2rem;
+            background-color: #f5f5f5;
             text-align: center;
         }
 
-        .circle-icon {
-            width: 150px;
-            height: 150px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
-            margin: 0 auto;
-            border: 3px solid darkgoldenrod; /* Adding a subtle golden border */
-        }
-
-        .circle-icon img {
-            width: 150px;
-        }
-
-        .coming-soon-text {
-            margin-top: 20px;
-            color: white;
+        .introduction h2 {
             font-size: 2rem;
-            font-weight: bold;
-            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+            color: #4A90E2;
         }
 
-        .subtext {
-            color: rgba(255, 255, 255, 0.8);
+        .introduction p {
+            margin: 1rem auto;
+            max-width: 600px;
             font-size: 1rem;
-            margin-top: 10px;
+            line-height: 1.6;
+            color: #5a5a5a;
         }
 
-        @media (max-width: 768px) {
-            .coming-soon-text {
-                font-size: 1.5rem;
-            }
-            .circle-icon {
-                width: 100px;
-                height: 100px;
-            }
-            .circle-icon img {
-                width: 100px;
-                height: 100px;
-            }
+        /* FEATURED CONTENT */
+        .featured {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+            background-color: #fff;
+        }
+
+        .featured-item {
+            background-color: #eaf4fc;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .featured-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .featured-item h3 {
+            color: #4A90E2;
+            font-size: 1.5rem;
+        }
+
+        .featured-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #333;
+            color: #ddd;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer a {
+            color: #F5A623;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #fcb658;
         }
     </style>
 </head>
 <body>
-    <div class="coming-soon-container">
-        <div class="circle-icon">
-            <img src="./coldlukewarm.png" alt="Icon">
-        </div>
-        <div class="coming-soon-text">On the Horizon</div>
-        <div class="subtext">The Truth of God's Word is About to Unfold!</div>
+
+<header>
+    <div class="logo">LaodiceanTrumpet</div>
+    <button class="menu-toggle">☰</button>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#features">Laodicean Light</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+<section class="hero">
+    <div class="hero-content">
+        <h1>John 8:32 – “And you will know the truth, and the truth will set you free."</h1>
+        <p>Discover Freedom Through the Power of Truth.</p>
+        <button class="cta">Laodicean Light</button>
     </div>
+    <div class="hero-image">
+        <div class="hero-shape"></div>
+        <div class="hero-shape2"></div>
+        <img src="./hero_section_img.png" alt="Spiritual Growth">
+    </div>
+</section>
+
+<section class="introduction">
+    <h2>Our Mission</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod, eros a volutpat elementum, ligula nisi gravida neque, vel scelerisque magna justo eu turpis.</p>
+</section>
+
+<section class="featured">
+    <div class="featured-item">
+        <h3>Audio Teachings</h3>
+        <p>Listen to inspiring talks and sermons that uplift your soul.</p>
+    </div>
+    <!-- <div class="featured-item">
+        <h3>Guided Meditations</h3>
+        <p>Find calm and clarity with our step-by-step meditation guides.</p>
+    </div> -->
+    <div class="featured-item">
+        <h3>PDF Resources</h3>
+        <p>Explore detailed resources to deepen your spiritual journey.</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 LaodiceanTrumpet. All Rights Reserved. <a href="#">Privacy Policy</a></p>
+</footer>
+
+<script>
+    // Toggle menu for responsive navigation
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('header nav');
+
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+    });
+</script>
+
 </body>
 </html>
